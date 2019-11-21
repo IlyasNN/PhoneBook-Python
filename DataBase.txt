@@ -1,3 +1,5 @@
-Ilya; Solovyov; mobile:89087262503, home:2523772
-Max; Cherepkov; mobile:+78905671234; 01.09.2000
-Anzor; Ogurliev; work:89072345672, mobile: 567826373; 03.02.2001
+Ilya;Solovyov;mobile:89049216613;13.10.2000
+Max;Chepep;mobile:4321435325235;01.09.2000
+Andrey;Lebed;home:2523772
+Andrey;Lebedev;work:89056722532
+Vlad;Volkov;mobile:82343454556

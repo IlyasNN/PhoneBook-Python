@@ -1,6 +1,5 @@
 from Person import Person
-from datetime import datetime, date, time
-import os
+from datetime import datetime
 
 
 def cls(): print("\n" * 100)
@@ -127,12 +126,13 @@ def menu3():
 
 
 if __name__ == "__main__":
+
     phoneBook = {}
-    file = open('DataBase.txt', 'r')
-    for line in file:
-        line = line.replace('\n', '')
-        newOne = parse(line)
-        phoneBook[newOne.name + ' ' + newOne.surname] = newOne
+    with open('DataBase.txt', 'r') as readFile:
+        for line in readFile:
+            line = line.replace('\n', '')
+            newOne = parse(line)
+            phoneBook[newOne.name + ' ' + newOne.surname] = newOne
 
     print(
         'Hello - instruction\n1.show\n2.search\n3.add new person\n4.delete some person\n5.change information about a person\n6.age of a person\nquit\n')
@@ -151,7 +151,11 @@ if __name__ == "__main__":
             menu5()
         elif menu == 6:
             menu6()
-        # wrong comman
+        # wrong command
         print(
             '1.show\n2.search\n3.add new person\n4.delete some person\n5.change information about a person\n6.age of a person\nquit\n')
         menu = input('Enter: ')
+
+    with open('DataBase.txt', 'w') as writeFile:
+        for key in phoneBook:
+            writeFile.write(phoneBook[key].to_str() + '\n')

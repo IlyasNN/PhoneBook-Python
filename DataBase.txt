@@ -1,5 +1,5 @@
-Ilya;Solovyov;mobile:89049216613;13.10.2000
-Max;Chepep;mobile:4321435325235;01.09.2000
 Andrey;Lebed;home:2523772
 Andrey;Lebedev;work:89056722532
-Vlad;Volkov;mobile:82343454556
+Vlad;Volkov;mobile:82343454556;01.02.2000
+Max;Cherepkov;mobile:4321435325235;01.09.2000
+Ilya;Tikhobaev;mobile:81234567890;02.02.2000

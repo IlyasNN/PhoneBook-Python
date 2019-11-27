@@ -4,7 +4,7 @@ import Main
 def delete(phoneBook):
     Main.cls()
     print('To delete a person from phone book choose a field for deletion search:')
-    print('1.name\n2.surname\n3.name and surname\n4.phone\nquit\n')
+    print('1.name and surname\n2.name\n3.surname\n4.phone\nquit\n')
     menu = input('Enter: ')
     while menu != 'quit':
         try:
@@ -16,28 +16,6 @@ def delete(phoneBook):
 
         if menu == 1:
             try:
-                name = input('Enter a name:')
-                name = name.replace(' ', '')
-                name = name.title()
-                for key in list(phoneBook):
-                    if phoneBook[key].name == name:
-                        listDelete.append(key)
-            except BaseException:
-                print('Wrong name format, try one more time\n')
-
-        elif menu == 2:
-            try:
-                surname = input('Enter a surname:')
-                surname = surname.replace(' ', '')
-                surname = surname.title()
-                for key in list(phoneBook):
-                    if phoneBook[key].surname == surname:
-                        listDelete.append(key)
-            except BaseException:
-                print('Wrong surname format, try one more time\n')
-
-        elif menu == 3:
-            try:
                 nameSurname = input('Enter name and surname in format (Name Surname):')
                 ns = nameSurname.split(' ')
                 ns[0] = ns[0].title()
@@ -48,10 +26,34 @@ def delete(phoneBook):
             except BaseException:
                 print('wrong name or surname format, try one more time\n')
 
+        elif menu == 2:
+            try:
+                name = input('Enter a name:')
+                name = name.replace(' ', '')
+                name = name.title()
+                for key in list(phoneBook):
+                    if phoneBook[key].name == name:
+                        listDelete.append(key)
+            except BaseException:
+                print('Wrong name format, try one more time\n')
+
+        elif menu == 3:
+            try:
+                surname = input('Enter a surname:')
+                surname = surname.replace(' ', '')
+                surname = surname.title()
+                for key in list(phoneBook):
+                    if phoneBook[key].surname == surname:
+                        listDelete.append(key)
+            except BaseException:
+                print('Wrong surname format, try one more time\n')
+
         elif menu == 4:
             try:
                 phone = input('Enter phone number in format(8XXXXXXXX):')
                 phone = phone.replace(' ', '').replace('+7', '8')
+                if not phone.isdigit():
+                    raise Exception()
                 for key in list(phoneBook):
                     if phoneBook[key].phones['mobile'] == phone or phoneBook[key].phones['home'] == phone or \
                             phoneBook[key].phones['work'] == phone:
@@ -60,7 +62,7 @@ def delete(phoneBook):
             except BaseException:
                 print('wrong phone format, try one more time\n')
 
-        print('List of contacts for deletion\n:')
+        print('List of contacts for deletion:\n')
         for element in listDelete:
             phoneBook[element].print()
 
@@ -74,8 +76,6 @@ def delete(phoneBook):
             for key in listDelete:
                 del phoneBook[key]
 
-
-
         print('To delete one more person from phone book choose a field for deletion search:')
-        print('1.name\n2.surname\n3.name and surname\n4.phone\nquit\n')
+        print('1.name and surname\n2.name\n3.surname\n4.phone\nquit\n')
         menu = input('Enter: ')

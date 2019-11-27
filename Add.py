@@ -30,6 +30,8 @@ def parse(string):
             phoneParts = phone.split(':')
             phoneParts[0] = phoneParts[0].lower()
             phoneParts[1] = phoneParts[1].replace('+7', '8')
+            if not phoneParts[1].isdigit():
+                raise Exception()
             if phoneParts[0] in newPerson.phones:
                 newPerson.phones[phoneParts[0]] = phoneParts[1]
             else:

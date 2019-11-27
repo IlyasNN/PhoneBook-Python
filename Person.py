@@ -27,3 +27,16 @@ class Person(object):
         if self.birthday:
             string = string + ';' + self.birthday.strftime('%d.%m.%Y')
         return string
+
+    def print(self):
+
+        print('Name    : ' + self.name)
+        print('Surname : ' + self.surname)
+        print('Phones  :')
+        for key in self.phones:
+            if (self.phones[key] != None):
+                print(' ' + key + ': ' + self.phones[key])
+        if self.birthday != None:
+            print('Birthday: ' + self.birthday.strftime('%d.%m.%Y'))
+        print()
+# Создаём таблицу относительных частот

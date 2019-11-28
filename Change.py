@@ -5,7 +5,7 @@ from Person import Person
 
 def change(phoneBook):
     Main.cls()
-    print('To change information about a person from phone book enter name and surname in format(Name Surname) or '
+    print('To change information about a person from phoneBook enter name and surname in format(Name Surname) or '
           'enter \'quit\' to quit')
     menu = input('Enter: ')
     if menu != 'quit':

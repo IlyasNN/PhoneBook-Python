@@ -58,7 +58,8 @@ def search(phoneBook):
                 phone = input('Enter phone number in format(8XXXXXXXX):')
                 phone = phone.replace(' ', '').replace('+7', '8')
                 for key in list(searchBook):
-                    if searchBook[key].phones['mobile'] != phone and searchBook[key].phones['home'] != phone and searchBook[key].phones['work'] != phone:
+                    if searchBook[key].phones['mobile'] != phone and searchBook[key].phones['home'] != phone and \
+                            searchBook[key].phones['work'] != phone:
                         del searchBook[key]
                 showSearch(searchBook)
             except BaseException:
@@ -66,11 +67,14 @@ def search(phoneBook):
 
         elif menu == 5:
             try:
-                birthday = input('Enter date of birthday in format (dd.mm.yyyy):')
+                birthday = input('Enter date of birthday in format (dd.mm):')
                 birthday = birthday.replace(' ', '')
-                birthday = datetime.strptime(birthday, '%d.%m.%Y').date()
+                DM = birthday.split('.')
+                day = DM[0]
+                month = DM[1]
                 for key in list(searchBook):
-                    if searchBook[key].birthday != birthday:
+                    if searchBook[key].birthday is None or not (searchBook[key].birthday.day == int(day) and
+                                                                searchBook[key].birthday.month == int(month)):
                         del searchBook[key]
                 showSearch(searchBook)
             except BaseException:

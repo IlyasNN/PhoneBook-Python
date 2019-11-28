@@ -3,10 +3,10 @@ import Main
 
 def delete(phoneBook):
     Main.cls()
-    print('To delete a person from phone book choose a field for deletion search:')
+    print('To delete a person from phoneBook choose a field for deletion search:')
     print('1.name and surname\n2.name\n3.surname\n4.phone\nquit\n')
     menu = input('Enter: ')
-    while menu != 'quit':
+    if menu != 'quit':
         try:
             menu = int(menu)
         except BaseException:
@@ -50,7 +50,7 @@ def delete(phoneBook):
 
         elif menu == 4:
             try:
-                phone = input('Enter phone number in format(8XXXXXXXX):')
+                phone = input('Enter phone number in:')
                 phone = phone.replace(' ', '').replace('+7', '8')
                 if not phone.isdigit():
                     raise Exception()
@@ -69,13 +69,11 @@ def delete(phoneBook):
         print('\nDo you want to delete all of them? Choose:\n1.Yes\n2.Cancel\n')
         menu2 = input('Enter: ')
         try:
-            menu2 = int(menu)
+            menu2 = int(menu2)
         except BaseException:
             menu2 = 2
         if menu2 == 1:
             for key in listDelete:
                 del phoneBook[key]
 
-        print('To delete one more person from phone book choose a field for deletion search:')
-        print('1.name and surname\n2.name\n3.surname\n4.phone\nquit\n')
-        menu = input('Enter: ')
+    Main.cls()

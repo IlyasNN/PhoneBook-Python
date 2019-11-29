@@ -1,13 +1,14 @@
-import Main
+from Other import cls
 from datetime import datetime, date
 from Person import Person
 
 
 def change(phoneBook):
-    Main.cls()
-    print('To change information about a person from phoneBook enter name and surname in format(Name Surname) or '
-          'enter \'quit\' to quit')
-    menu = input('Enter: ')
+    cls()
+    print(
+        '\tTo change information about a person from phoneBook enter name and surname in format(Name Surname) \n\t\tOr '
+        'enter \'quit\' to quit')
+    menu = input('\n\tEnter: ')
     if menu != 'quit':
         try:
             nameSurname = menu
@@ -20,13 +21,13 @@ def change(phoneBook):
                     searchKey = key
 
             if searchKey is not None:
-                print('Contact was found:\n')
+                print('\n\tContact was found:\n')
                 phoneBook[searchKey].print()
                 changePerson = phoneBook[searchKey]
                 print(
-                    'Choose a field to change:\n1.name\n2.surname\n3.mobile number\n4.home number\n5.work '
-                    'number\n6.date of birhday\n\'quit\' to quit')
-                menu2 = input('Enter: ')
+                    '\n\tChoose a field to change:\n\t\t1.name\n\t\t2.surname\n\t\t3.mobile number\n\t\t4.home number\n\t\t5.work '
+                    'number\n\t\t6.date of birhday\n\t\t\'quit\' to quit')
+                menu2 = input('\n\tEnter: ')
                 while menu2 != 'quit':
                     try:
                         menu2 = int(menu2)
@@ -35,7 +36,7 @@ def change(phoneBook):
 
                     if menu2 == 1:
                         try:
-                            name = input('Enter new name: ')
+                            name = input('\tEnter new name: ')
                             name = name.replace(' ', '')
                             name = name.title()
                             if (name + ' ' + changePerson.surname) in phoneBook:
@@ -51,7 +52,7 @@ def change(phoneBook):
 
                     elif menu2 == 2:
                         try:
-                            surname = input('Enter new surname: ')
+                            surname = input('\tEnter new surname: ')
                             surname = surname.replace(' ', '')
                             surname = surname.title()
                             if (changePerson.name + ' ' + surname) in phoneBook:
@@ -65,7 +66,7 @@ def change(phoneBook):
                             print('Wrong surname format, try one more time\n')
                     elif menu2 == 3:
                         try:
-                            phone = input('Enter new mobile number in format (8XXXXXXXXXX) or \'del\' to delete: ')
+                            phone = input('\tEnter new mobile number or \'del\' to delete: ')
                             phone = phone.replace(' ', '').replace('+7', '8')
                             if phone == 'del':
                                 phoneBook[searchKey].phones['mobile'] = None
@@ -78,7 +79,7 @@ def change(phoneBook):
 
                     elif menu2 == 4:
                         try:
-                            phone = input('Enter new home number in format (8XXXXXXXXXX) or \'del\' to delete: ')
+                            phone = input('\tEnter new home number \'del\' to delete: ')
                             phone = phone.replace(' ', '').replace('+7', '8')
                             if phone == 'del':
                                 phoneBook[searchKey].phones['home'] = None
@@ -90,7 +91,7 @@ def change(phoneBook):
                             print('Wrong phone number format, try one more time\n')
                     elif menu2 == 5:
                         try:
-                            phone = input('Enter new work number in format (8XXXXXXXXXX) or \'del\' to delete: ')
+                            phone = input('\tEnter new work number or \'del\' to delete: ')
                             phone = phone.replace(' ', '').replace('+7', '8')
                             if phone == 'del':
                                 phoneBook[searchKey].phones['work'] = None
@@ -102,7 +103,7 @@ def change(phoneBook):
                             print('Wrong phone number format, try one more time\n')
                     elif menu2 == 6:
                         try:
-                            newDate = input('Enter new date of birthday in format (dd.mm.yyyy) or \'del\' to delete: ')
+                            newDate = input('\tEnter new date of birthday in format (dd.mm.yyyy) or \'del\' to delete: ')
                             if newDate == 'del':
                                 phoneBook[searchKey].birthday = None
                             else:
@@ -117,15 +118,15 @@ def change(phoneBook):
                     phoneBook[searchKey].print()
 
                     print(
-                        '\n\nChoose one more field to change:\n1.name\n2.surname\n3.mobile number\n4.home '
-                        'number\n5.work number\n6.date of birhday\n\'quit\' to quit')
-                    menu2 = input('Enter: ')
+                        '\n\n\tChoose one more field to change:\n\t\t1.name\n\t\t2.surname\n\t\t3.mobile number\n\t\t4.home number\n\t\t5.work '
+                    'number\n\t\t6.date of birhday\n\t\t\'quit\' to quit')
+                    menu2 = input('\n\tEnter: ')
 
-                Main.cls()
+                cls()
             else:
-                print('There is no person with such name and surname')
+                print('\t\tThere is no person with such name and surname\n\n')
 
         except BaseException:
             print('Wrong name and surname format')
     else:
-        Main.cls()
+        cls()

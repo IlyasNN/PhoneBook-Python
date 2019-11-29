@@ -1,11 +1,11 @@
-import Main
+from Other import cls
 
 
 def delete(phoneBook):
-    Main.cls()
-    print('To delete a person from phoneBook choose a field for deletion search:')
-    print('1.name and surname\n2.name\n3.surname\n4.phone\nquit\n')
-    menu = input('Enter: ')
+    cls()
+    print('\tTo delete a person from phoneBook choose a field for deletion search:')
+    print('\t\t1.name and surname\n\t\t2.name\n\t\t3.surname\n\t\t4.phone\n\t\t\'quit\' to quit\n')
+    menu = input('\tEnter: ')
     if menu != 'quit':
         try:
             menu = int(menu)
@@ -16,7 +16,7 @@ def delete(phoneBook):
 
         if menu == 1:
             try:
-                nameSurname = input('Enter name and surname in format (Name Surname):')
+                nameSurname = input('\n\tEnter name and surname in format (Name Surname):')
                 ns = nameSurname.split(' ')
                 ns[0] = ns[0].title()
                 ns[1] = ns[1].title()
@@ -28,7 +28,7 @@ def delete(phoneBook):
 
         elif menu == 2:
             try:
-                name = input('Enter a name:')
+                name = input('\n\tEnter a name:')
                 name = name.replace(' ', '')
                 name = name.title()
                 for key in list(phoneBook):
@@ -39,7 +39,7 @@ def delete(phoneBook):
 
         elif menu == 3:
             try:
-                surname = input('Enter a surname:')
+                surname = input('\n\tEnter a surname:')
                 surname = surname.replace(' ', '')
                 surname = surname.title()
                 for key in list(phoneBook):
@@ -50,7 +50,7 @@ def delete(phoneBook):
 
         elif menu == 4:
             try:
-                phone = input('Enter phone number in:')
+                phone = input('\n\tEnter phone number:')
                 phone = phone.replace(' ', '').replace('+7', '8')
                 if not phone.isdigit():
                     raise Exception()
@@ -62,11 +62,11 @@ def delete(phoneBook):
             except BaseException:
                 print('wrong phone format, try one more time\n')
 
-        print('List of contacts for deletion:\n')
+        print('\tList of contacts for deletion:\n')
         for element in listDelete:
             phoneBook[element].print()
 
-        print('\nDo you want to delete all of them? Choose:\n1.Yes\n2.Cancel\n')
+        print('\n\t\tDo you want to delete all of them? Choose:\n\t1.Yes\n\t2.Cancel\n')
         menu2 = input('Enter: ')
         try:
             menu2 = int(menu2)
@@ -76,4 +76,4 @@ def delete(phoneBook):
             for key in listDelete:
                 del phoneBook[key]
 
-    Main.cls()
+    cls()

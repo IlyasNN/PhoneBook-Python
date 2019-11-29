@@ -1,6 +1,6 @@
 from datetime import datetime
 from Person import Person
-import Main
+from Other import cls
 
 
 def parse(string):
@@ -54,12 +54,12 @@ def parse(string):
 
 
 def add(phoneBook):
-    Main.cls()
-    print('To add new person in phone book enter information in the following format:')
-    print('Name;Surname;mobile:8xxxxxxxx,home:xxxxxxx,work:xxxxxxxx;dd.mm.yyyy')
-    print('If some fields are missing, just dont enter it')
-    print('Or enter \'quit\' to quit')
-    string = input('Enter: ')
+    cls()
+    print('\tTo add new person in phone book enter information in the following format:')
+    print('\t\tName;Surname;mobile:8xxxxxxxx,home:xxxxxxx,work:xxxxxxxx;dd.mm.yyyy')
+    print('\tIf some fields are missing, just dont enter it')
+    print('\t\tOr enter \'quit\' to quit')
+    string = input('\n\tEnter: ')
     string = string.replace(' ', '')
     if string != 'quit':
         newOne = parse(string)
@@ -101,4 +101,4 @@ def add(phoneBook):
             else:
                 print('WRONG COMMAND')
                 f = True
-    Main.cls()
+    cls()

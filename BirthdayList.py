@@ -1,11 +1,11 @@
 from datetime import datetime, date, timedelta
 
-import Main
+from Other import cls
 from Show import showBirthday
 
 
 def birthdayList(phoneBook):
-    Main.cls()
+    cls()
     searchBook = phoneBook.copy()
 
     for key in list(searchBook):
@@ -25,4 +25,4 @@ def birthdayList(phoneBook):
 
     showBirthday(searchBook)
 
-    print('Don\'t forget to congratulate them!!!\n')
+    print('\tDon\'t forget to congratulate them!!!\n')

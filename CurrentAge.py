@@ -1,13 +1,14 @@
-import Main
+from Other import cls
 from datetime import datetime, date, timedelta
 from Person import Person
 
 
 def currentAge(phoneBook):
-    Main.cls()
-    print('To find information about age of person from phoneBook enter name and surname in format(Name Surname) or '
-          'enter \'quit\' to quit')
-    menu = input('Enter: ')
+    cls()
+    print(
+        '\tTo find information about age of person from phoneBook enter name and surname in format(Name Surname) \n\t\tOr '
+        'enter \'quit\' to quit')
+    menu = input('\n\tEnter: ')
     if menu != 'quit':
         try:
             nameSurname = menu
@@ -20,7 +21,7 @@ def currentAge(phoneBook):
                     searchKey = key
 
             if searchKey is not None:
-                print('\nContact was found:\n')
+                print('\n\tContact was found:\n')
                 phoneBook[searchKey].print()
                 agePerson = phoneBook[searchKey]
 
@@ -28,16 +29,16 @@ def currentAge(phoneBook):
                     now = datetime.now().date()
                     delta = now - agePerson.birthday
                     print(
-                        'Now ' + agePerson.name + ' ' + agePerson.surname + ' is ' + str(
-                            int(delta.days / 365)) + ' years\n')
+                        '\tNow ' + agePerson.name + ' ' + agePerson.surname + ' is ' + str(
+                            int(delta.days / 365)) + ' years old\n')
                 else:
-                    print("There is no information about the date of birthday\n\n")
+                    print("\tThere is no information about the date of birthday\n\n")
 
             else:
-                print('There is no person with such name and surname')
+                print('\tThere is no person with such name and surname\n')
 
         except BaseException:
-            print('Wrong name and surname format')
+            print('Wrong name and surname format\n')
 
     else:
-        Main.cls()
+        cls()

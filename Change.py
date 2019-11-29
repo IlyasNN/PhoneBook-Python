@@ -69,41 +69,51 @@ def change(phoneBook):
                             phone = input('\tEnter new mobile number or \'del\' to delete: ')
                             phone = phone.replace(' ', '').replace('+7', '8')
                             if phone == 'del':
+                                if (phoneBook[searchKey].phones['home'] is None and phoneBook[searchKey].phones['work'] is None):
+                                    raise Exception()
                                 phoneBook[searchKey].phones['mobile'] = None
                             else:
                                 if not phone.isdigit():
                                     raise Exception()
                                 phoneBook[searchKey].phones['mobile'] = phone
                         except BaseException:
-                            print('Wrong phone number format, try one more time\n')
+                            print(
+                                '\nWrong phone number format or you try to delete only (last) number, try one more time\n')
 
                     elif menu2 == 4:
                         try:
                             phone = input('\tEnter new home number \'del\' to delete: ')
                             phone = phone.replace(' ', '').replace('+7', '8')
                             if phone == 'del':
+                                if (phoneBook[searchKey].phones['mobile'] is None and phoneBook[searchKey].phones['work'] is None):
+                                    raise Exception()
                                 phoneBook[searchKey].phones['home'] = None
                             else:
                                 if not phone.isdigit():
                                     raise Exception()
                                 phoneBook[searchKey].phones['home'] = phone
                         except BaseException:
-                            print('Wrong phone number format, try one more time\n')
+                            print(
+                                '\nWrong phone number format or you try to delete only (last) number, try one more time\n')
                     elif menu2 == 5:
                         try:
                             phone = input('\tEnter new work number or \'del\' to delete: ')
                             phone = phone.replace(' ', '').replace('+7', '8')
                             if phone == 'del':
+                                if (phoneBook[searchKey].phones['mobile'] is None and phoneBook[searchKey].phones['home'] is None):
+                                    raise Exception()
                                 phoneBook[searchKey].phones['work'] = None
                             else:
                                 if not phone.isdigit():
                                     raise Exception()
                                 phoneBook[searchKey].phones['work'] = phone
                         except BaseException:
-                            print('Wrong phone number format, try one more time\n')
+                            print(
+                                '\nWrong phone number format or you try to delete only (last) number, try one more time\n')
                     elif menu2 == 6:
                         try:
-                            newDate = input('\tEnter new date of birthday in format (dd.mm.yyyy) or \'del\' to delete: ')
+                            newDate = input(
+                                '\tEnter new date of birthday in format (dd.mm.yyyy) or \'del\' to delete: ')
                             if newDate == 'del':
                                 phoneBook[searchKey].birthday = None
                             else:
@@ -114,12 +124,12 @@ def change(phoneBook):
                         except BaseException:
                             print('Wrong date format, try one more time\n')
 
-                    print('\n\n\nChanges were saved:\n')
+                    print('\nChanges were saved:\n')
                     phoneBook[searchKey].print()
 
                     print(
                         '\n\n\tChoose one more field to change:\n\t\t1.name\n\t\t2.surname\n\t\t3.mobile number\n\t\t4.home number\n\t\t5.work '
-                    'number\n\t\t6.date of birhday\n\t\t\'quit\' to quit')
+                        'number\n\t\t6.date of birhday\n\t\t\'quit\' to quit')
                     menu2 = input('\n\tEnter: ')
 
                 cls()

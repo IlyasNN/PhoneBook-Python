@@ -30,13 +30,13 @@ class Person(object):
 
     def print(self):
 
-        print('Name    : ' + self.name)
-        print('Surname : ' + self.surname)
-        print('Phones  :')
+        print('\tName    : ' + self.name)
+        print('\tSurname : ' + self.surname)
+        print('\tPhones  :')
         for key in self.phones:
             if (self.phones[key] != None):
-                print(' ' + key + ': ' + self.phones[key])
+                print('\t  ' + key + ': ' + self.phones[key])
         if self.birthday != None:
-            print('Birthday: ' + self.birthday.strftime('%d.%m.%Y'))
+            print('\tBirthday: ' + self.birthday.strftime('%d.%m.%Y'))
         print()
 # Создаём таблицу относительных частот

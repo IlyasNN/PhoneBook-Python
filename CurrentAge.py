@@ -38,7 +38,7 @@ def currentAge(phoneBook):
                 print('\tThere is no person with such name and surname\n')
 
         except BaseException:
-            print('Wrong name and surname format\n')
+            print('\n\tWrong name and surname format\n\n')
 
     else:
         cls()

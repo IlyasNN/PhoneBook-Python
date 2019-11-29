@@ -37,15 +37,6 @@ def showBirthday(searchBook):
     i = 0
     for person in searchBook.values():
         i += 1
-        print('\t\t  ', i)
-        print('\t\tName    : ' + person.name)
-        print('\t\tSurname : ' + person.surname)
-        print('\t\tPhones  :')
-        for key in person.phones:
-            if (person.phones[key] != None):
-                print('\t\t ' + key + ': ' + person.phones[key])
-        if person.birthday != None:
-            print('\t\tBirthday: ' + person.birthday.strftime('%d.%m.%Y'))
-        print()
+        person.print()
     print('\t\tNumber of contacts that were found: ', len(searchBook))
     print('\n\t-----------------------------\n')

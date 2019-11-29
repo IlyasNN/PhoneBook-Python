@@ -13,10 +13,6 @@ from BirthdayList import birthdayList
 # Function that parse a string with the information about a person a creates a Person object
 
 
-def menu2():
-    pass
-
-
 def main():
     # dictionary with keys(Name Surname) and objects of Person class
     phoneBook = {}
@@ -28,8 +24,9 @@ def main():
             phoneBook[newOne.name + ' ' + newOne.surname] = newOne
 
     #menu
-    print(
-        'Hello - instruction\nChoose what to do with your phonebook: \n\t1.show\n\t2.search\n\t3.add new person\n\t4.delete some people\n\t5.change information about a person\n\t6.find out the age of a person\n\t7.get list of contacts who will celebrate Birhday soon\n\t\'quit\' to quit\n')
+    print('\n\n\nHELLO! THIS IS THE BEST PHONEBOOK FROM THE BEST PROGRAMMER OF THE WORLD!')
+    print('\t\tIT\'S WITH LOVE \n\t\t\tBY ILYA SOLOVOV')
+    print('\nChoose what to do with your phonebook: \n\t1.show\n\t2.search\n\t3.add new person\n\t4.delete some people\n\t5.change information about a person\n\t6.find out the age of a person\n\t7.get list of contacts who will celebrate Birhday soon\n\t\'quit\' to quit\n')
     menu = input('Enter: ')
     while menu != 'quit':
         try:

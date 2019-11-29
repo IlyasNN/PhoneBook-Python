@@ -30,7 +30,7 @@ def parse(string):
             phoneParts = phone.split(':')
             phoneParts[0] = phoneParts[0].lower()
             phoneParts[1] = phoneParts[1].replace('+7', '8')
-            if not phoneParts[1].isdigit():
+            if not (phoneParts[1].isdigit() and len(phoneParts[1]) <= 11):
                 raise Exception()
             if phoneParts[0] in newPerson.phones:
                 newPerson.phones[phoneParts[0]] = phoneParts[1]
@@ -57,7 +57,9 @@ def add(phoneBook):
     cls()
     print('\tTo add new person in phone book enter information in the following format:')
     print('\t\tName;Surname;mobile:8xxxxxxxx,home:xxxxxxx,work:xxxxxxxx;dd.mm.yyyy')
-    print('\tIf some fields are missing, just dont enter it')
+    print('\tIf some fields are missing, just dont enter it (at least one phone number is needed)')
+    print('\t\texample: Ivan; Ivanov; mobile:88005553535, home:2523772; 01.01.2000')
+    print('\t\texample: Andrey; Andreev; mobile:88005553535')
     print('\t\tOr enter \'quit\' to quit')
     string = input('\n\tEnter: ')
     string = string.replace(' ', '')
@@ -73,11 +75,15 @@ def add(phoneBook):
         if not f:
             phoneBook[newOne.name + ' ' + newOne.surname] = newOne
 
+        newOne = None
         #
         while f:
-            print('There is a contact with such Name and Surname\nChoose what to do:')
-            print('1.replace\n2.reenter information\n3.quit')
-            menu = int(input('Enter: '))
+            print('\n\tThere is a contact with such Name and Surname or wrong command\n\tChoose what to do:\n')
+            print('\t\t1.replace\n\t\t2.reenter information\n\t\t3.quit')
+            try:
+                menu = int(input('\n\tEnter: '))
+            except BaseException:
+                menu = 4
             # Replace the information
             if menu == 1:
                 del (phoneBook[newOne.name + ' ' + newOne.surname])
@@ -85,20 +91,24 @@ def add(phoneBook):
                 f = False
             # Reenter a string
             elif menu == 2:
-                print('To add new person in phone book enter information in the following format:')
-                print('Name;Surname;mobile:8xxxxxxxx,home:xxxxxxx,work:xxxxxxxx;dd.mm.yyyy')
-                print('If some fields are missing, just dont enter it')
+                print('\tTo add new person in phone book enter information in the following format:')
+                print('\t\tName;Surname;mobile:8xxxxxxxx,home:xxxxxxx,work:xxxxxxxx;dd.mm.yyyy')
+                print('\tIf some fields are missing, just dont enter it (at least one phone number is needed)')
+                print('\t\texample: Ivan; Ivanov; mobile:88005553535, home:2523772; 01.01.2000')
+                print('\t\texample: Andrey; Andreev; mobile:88005553535')
                 while newOne == None:
-                    string = input('Enter: ')
+                    string = input('\n\tEnter: ')
                     newOne = parse(string)
                 f = (newOne.name + ' ' + newOne.surname) in phoneBook
                 if not f:
                     phoneBook[newOne.name + ' ' + newOne.surname] = newOne
+                else:
+                    newOne = None
             # quit
             elif menu == 3:
                 f = False
             # wrong command
             else:
-                print('WRONG COMMAND')
+                print('\n\t\tWRONG COMMAND')
                 f = True
     cls()

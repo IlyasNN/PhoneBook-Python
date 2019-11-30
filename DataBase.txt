@@ -5,3 +5,4 @@ Max;Tikhobaev;mobile:81231231212
 Masha;Krulova;mobile:88005553535,home:2252525;01.01.2005
 Ded;Moroz;home:88888888888;02.12.1999
 Snegurochka;Snezhnaya;mobile:81234567890;26.12.2010
+New;Person;mobile:81231234321;01.01.1980

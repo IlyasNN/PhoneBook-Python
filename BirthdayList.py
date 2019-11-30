@@ -18,9 +18,10 @@ def birthdayList(phoneBook):
             day = searchBook[key].birthday.day
             month = searchBook[key].birthday.month
             year = today.year
-            birthday = date(year, month, day)
+            birthday1 = date(year, month, day)
+            birthday2 = date(year + 1, month, day)
 
-            if not (today < birthday and birthday < soon):
+            if not (today < birthday1 and birthday1 < soon) and not (today < birthday2 and birthday2 < soon):
                 del searchBook[key]
 
     showBirthday(searchBook)

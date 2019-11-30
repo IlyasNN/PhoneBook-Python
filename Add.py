@@ -1,6 +1,7 @@
 from datetime import datetime
 from Person import Person
 from Other import cls
+import re
 
 
 def parse(string):
@@ -12,10 +13,14 @@ def parse(string):
     try:
         name = blocks[0]
         name = name.title()
+        if re.search('\d+', name) is not None:
+            raise Exception('Name')
         newPerson.name = name
 
         surname = blocks[1]
         surname = surname.title()
+        if re.search('\d+', surname) is not None:
+            raise Exception('Surname')
         newPerson.surname = surname
     except BaseException:
         print("Wrong name or surname format\nCheck the format please and reenter it")

@@ -1,3 +1,7 @@
 Max;Chepep;mobile:4321435;01.09.2000
 Ilya;Solovyov;mobile:89049216613;13.10.2000
-Ilya;Tikhobaev;mobile:81231231212
+Aaaa;Bbb;home:81231231212
+Max;Tikhobaev;mobile:81231231212
+Masha;Krulova;mobile:88005553535,home:2252525;01.01.2005
+Ded;Moroz;home:88888888888;02.12.1999
+Snegurochka;Snezhnaya;mobile:81234567890;26.12.2010
